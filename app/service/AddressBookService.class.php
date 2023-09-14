@@ -111,7 +111,7 @@ class AddressBookService
     {
         $dbResult = [];
         // Only expression access if formConfig phone has post phone matches
-        if (preg_match($this->formConfig["columnsExpr"]["phone"], $_POST["phone"])) {
+        if (isset($_POST["phone"]) && preg_match($this->formConfig["columnsExpr"]["phone"], $_POST["phone"])) {
             // Get T9Api result with phone input
             $searchResult = $this->t9Instance->phoneToWords($_POST["phone"]);
             // Create mysql select query

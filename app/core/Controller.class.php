@@ -46,6 +46,7 @@ class Controller
      */
     public function setError (mixed $error): void
     {
+        $error = (is_array($error)) ? implode('<br>', $error[0]) : $error;
         $this->error[] = $error;
     }
 

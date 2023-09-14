@@ -40,7 +40,7 @@ class IndexController extends Controller
     private function setFormAction (): void
     {
         // Get form action
-        $action = $_POST["form_action"] ?? "";
+        $action = parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY) ?? "";
 
         switch ($action)
         {
