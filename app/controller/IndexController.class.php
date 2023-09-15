@@ -32,6 +32,8 @@ class IndexController extends Controller
         $this->setFormAction();
         // Get address_book entries and set view param addressBook
         $this->setView("addressBook", $this->Service->getAddressBook());
+        // Get number letters config and set view param numberLetterConfig
+        $this->setView("numberLetterConfig", $this->Service->getNumberLettersConfig());
     }
 
     /**

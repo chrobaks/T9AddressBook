@@ -31,6 +31,14 @@ class T9Api
     }
 
     /**
+     * @return array
+     */
+    public function getNumberLettersConfig(): array
+    {
+        return $this->numberLettersConfig;
+    }
+
+    /**
      * @param string $phone
      * @return array
      */

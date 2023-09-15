@@ -48,6 +48,14 @@ class AddressBookService
     }
 
     /**
+     * @return array
+     */
+    public function getNumberLettersConfig(): array
+    {
+        return $this->t9Instance->getNumberLettersConfig();
+    }
+
+    /**
      * @return void
      */
     public function addAddressBook (): void

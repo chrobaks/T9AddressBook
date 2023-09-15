@@ -4,8 +4,7 @@
     <tbody>
     <tr>
         <td>
-            <form method="post" action="index.php">
-                <input type="hidden" value="addAddressBook" name="form_action">
+            <form method="post" action="index.php?addAddressBook">
                 <p>
                     <b>Vorname</b> <small>(nur Buchstaben und Bindestrich ohne Leerzeichen)</small><br>
                     <input type="text" value="" name="first_name" placeholder="Vorname">
@@ -22,11 +21,18 @@
             </form>
         </td>
         <td>
-            <form method="post" action="index.php">
+            <?php if(isset ($View["numberLetterConfig"]) && count($View["numberLetterConfig"]) > 0):?>
+            <div class="keyboard-wrapper">
+                <div class="keyboard-key"></div>
+                <?php foreach($View["numberLetterConfig"] as $number => $letter):?>
+                <div class="keyboard-key" data-number="<?=$number;?>" data-letter="<?=$letter;?>"><?=$letter;?><br><?=$number;?></div>
+                <?php endforeach;?>
+            </div>
+            <?php endif;?>
+            <form method="post" action="index.php?getAddress">
                 <p>
-                    <input type="hidden" value="getAddress" name="form_action">
                     <b>Telefonnummer</b> <small>(nur Zahlen (2-9) ohne Leerzeichen)</small><br>
-                    <input type="number" value="" name="phone">
+                    <input type="number" value="" name="phone" id="phone_number">
                 </p>
                 <p><button type="submit">Teilnehmer suchen</button></p>
             </form>
